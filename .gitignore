@@ -1,6 +1,7 @@
 # for osx
 .DS_Store
 *_bak.*
+/assets/sounds/Atom Bomb (Atomix 1).mp3
 
 # ignore directory and contents
 /__pycache__
