@@ -1,8 +1,8 @@
 function Button(sprite, position, callback, hoverSprite){
 
     this.sprite = sprite;
-    this.hoverSprite = hoverSprite ? hoverSprite : sprite;
-    this.position = position;
+    this.hoverSprite = hoverSprite ? hoverSprite : sprite; // function Button(sprite, position, callback, hoverSprite=sprite)
+    this.position = position;                              // ^ is this legal syntax TODO
     this.callback = callback;
 }
 
