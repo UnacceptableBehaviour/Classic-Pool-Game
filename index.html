@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html>
 <head>
-        <meta http-equiv="content-type" content="text/html; charset=UTF8">
+    <meta http-equiv="content-type" content="text/html; charset=UTF8">
     <title>Classic Pool Game</title>
     <link rel="stylesheet" type="text/css" href="css/game-layout.css"/>
     <link rel="shortcut icon" type="image/png" href="assets/sprites/favicon.png"/>
-    <script src="script/lib/LAB.min.js"></script>
+    <script src="script/lib/LAB.min.js"></script>                   <!--Asynch JS loader lib-->
     <script>
         $LAB
-                .script('script/system/Keys.js').wait()
-                .script('script/system/Color.js').wait()
-                .script('script/geom/Vector2.js').wait()
-                .script('script/input/ButtonState.js').wait()
-                .script('script/input/Keyboard.js').wait()
-                .script('script/input/Mouse.js').wait()
-                .script('script/Global.js').wait()
-                .script('script/Canvas2D.js').wait()
+                .script('script/system/Keys.js').wait()       // Keyboard translation defs
+                .script('script/system/Color.js').wait()      // Colour defs
+                .script('script/geom/Vector2.js').wait()      // vector + - / * and properties
+                .script('script/input/ButtonState.js').wait() // down / presses < that's it!
+                .script('script/input/Keyboard.js').wait()    // translate key up/down into Singleton keyboard state for each key
+                                                              // attach event handler to DOM
+                .script('script/input/Mouse.js').wait()       // translate mouse move button up/down into Singleton mouse state buttons LMR / POS XY
+                                                              // attach event handler to DOM
+                .script('script/Global.js').wait()            // global var declarations
+                .script('script/Canvas2D.js').wait()          //
                 .script('script/game_objects/Score.js').wait()
                 .script('script/game_objects/Ball.js').wait()
                 .script('script/game_objects/Stick.js').wait()

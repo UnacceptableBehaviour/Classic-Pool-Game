@@ -1,8 +1,8 @@
 "use strict";
 
 function Vector2(x, y) {
-    this.x = typeof x !== 'undefined' ? x : 0;
-    this.y = typeof y !== 'undefined' ? y : 0;
+    this.x = typeof x !== 'undefined' ? x : 0;  // EG: v = new Vector2()    
+    this.y = typeof y !== 'undefined' ? y : 0;  // if y is not undefined y=y else y=0
 }
 
 Object.defineProperty(Vector2, "zero",

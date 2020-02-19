@@ -1,6 +1,8 @@
 "use strict";
 
 function Ball(initPos,color){
+	console.log(initPos);
+	console.log(typeof(initPos));
 	this.initPos = initPos;
     this.position = initPos.copy();
     this.origin = new Vector2(25,25);
@@ -61,13 +63,17 @@ Ball.prototype.update = function(delta){
 
     this.updatePosition(delta);
 
-    this.velocity.multiplyWith(0.98);
+    this.velocity.multiplyWith(0.98); // deceleration / friction
+	//this.velocity.multiplyWith(0.9); // balls dont reach the sides! - man those balls are hardf to move! 
+	//this.velocity.multiplyWith(0.99999); // frictionless cloth!
+	//this.velocity.multiplyWith(1.001); // accelerating balls!!
 
 	if(this.moving && Math.abs(this.velocity.x) < 1 && Math.abs(this.velocity.y) < 1){
         this.stop();
     }
 }
 
+// called in update
 Ball.prototype.updatePosition = function(delta){
 
     if(!this.moving || this.inHole)

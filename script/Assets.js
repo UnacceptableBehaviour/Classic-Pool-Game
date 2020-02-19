@@ -51,7 +51,7 @@ Game.loadAssets = function () {
     // Bossa Antigua Kevin MacLeod (incompetech.com)
     // Licensed under Creative Commons: By Attribution 3.0 License
     // http://creativecommons.org/licenses/by/3.0/
-    sounds.jazzTune = loadSound("Bossa Antigua.mp3");
+    sounds.jazzTune = loadSound("Atom Bomb (Atomix 1).mp3");
 }
 
 sounds.fadeOut = function(sound) {
@@ -71,3 +71,7 @@ sounds.fadeOut = function(sound) {
         }
     }, 400);
 }
+
+
+console.log('Done loading . . . . ready to play.');
+console.log('Done loading . . . . ready to play.');

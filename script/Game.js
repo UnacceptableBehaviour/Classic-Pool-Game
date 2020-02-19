@@ -87,8 +87,9 @@ Game_Singleton.prototype.startNewGame = function(){
     Game.policy = new GamePolicy();
 
     Canvas2D.clear();
+    
     Canvas2D.drawImage(
-        sprites.controls, 
+        sprites.controls,      // keyboard controls sprite
         new Vector2(Game.size.x/2,Game.size.y/2), 
         0, 
         1, 
@@ -102,7 +103,8 @@ Game_Singleton.prototype.startNewGame = function(){
             AI.startSession();
         }
         Game.mainLoop();
-    },5000);
+    },100);
+    //},5000);                 // flash key instructions banner 5sec
 }
 
 Game_Singleton.prototype.continueGame = function(){
