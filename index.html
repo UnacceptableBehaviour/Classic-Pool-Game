@@ -17,10 +17,10 @@
                 .script('script/input/Mouse.js').wait()       // translate mouse move button up/down into Singleton mouse state buttons LMR / POS XY
                                                               // attach event handler to DOM
                 .script('script/Global.js').wait()            // global var declarations
-                .script('script/Canvas2D.js').wait()          //
-                .script('script/game_objects/Score.js').wait()
-                .script('script/game_objects/Ball.js').wait()
-                .script('script/game_objects/Stick.js').wait()
+                .script('script/Canvas2D.js').wait()          // props: scale,offset methods: init, clear, resize, drawImage drawText
+                .script('script/game_objects/Score.js').wait()// scoring
+                .script('script/game_objects/Ball.js').wait() // ball physics, props: colour methods: shoot updatPos, handleCollision, stop, draw etc
+                .script('script/game_objects/Stick.js').wait()// 
                 .script('script/menu/Label.js').wait()
                 .script('script/menu/Button.js').wait()
                 .script('script/menu/Menu.js').wait()
