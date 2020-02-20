@@ -2,14 +2,23 @@
 function GamePolicy(){
 
     this.turn = 0;
+    this.noOfPlayers = 3;    
     this.firstCollision = true;
-    let player1TotalScore = new Score(new Vector2(Game.size.x/2 - 75,Game.size.y/2 - 45));
-    let player2TotalScore = new Score(new Vector2(Game.size.x/2 + 75,Game.size.y/2 - 45));
+    
+    // score on cloth
+    let player1TotalScore = new Score(new Vector2(Game.size.x/2 - 135,Game.size.y/2 - 45));
+    let player2TotalScore = new Score(new Vector2(Game.size.x/2 - 10,Game.size.y/2 - 45));
+    let player3TotalScore = new Score(new Vector2(Game.size.x/2 + 115,Game.size.y/2 - 45));
 
-    let player1MatchScore = new Score(new Vector2(Game.size.x/2 - 280,108));
-    let player2MatchScore = new Score(new Vector2(Game.size.x/2 + 230,108));
+    // score on cushion
+    let player1MatchScore = new Score(new Vector2(Game.size.x/2 - 290,108));
+    let player2MatchScore = new Score(new Vector2(Game.size.x/2 + 235,108));
+    let player3MatchScore = new Score(new Vector2(Game.size.x/2 + 405,108));
 
-    this.players = [new Player(player1MatchScore,player1TotalScore), new Player(player2MatchScore,player2TotalScore)];
+    this.players = [new Player(player1MatchScore,player1TotalScore),
+                    new Player(player2MatchScore,player2TotalScore),
+                    new Player(player3MatchScore,player3TotalScore)];
+    
     this.foul = false;
     this.scored = false;
     this.won = false;
@@ -35,6 +44,8 @@ GamePolicy.prototype.reset = function(){
     this.players[0].color = undefined;
     this.players[1].matchScore.value = 0;
     this.players[1].color = undefined;
+    this.players[2].matchScore.value = 0;
+    this.players[2].color = undefined;
     this.foul = false;
     this.scored = false;
     this.turnPlayed = false;
@@ -42,13 +53,16 @@ GamePolicy.prototype.reset = function(){
     this.firstCollision = true;
     this.validBallsInsertedOnTurn = 0;
 }
+
 GamePolicy.prototype.drawScores = function(){
     Canvas2D.drawText("PLAYER " + (this.turn+1), new Vector2(Game.size.x/2 + 40,200), new Vector2(150,0), "#096834", "top", "Impact", "70px");
     this.players[0].totalScore.draw();
     this.players[1].totalScore.draw();
+    this.players[2].totalScore.draw();
 
     this.players[0].matchScore.drawLines(this.players[0].color);
     this.players[1].matchScore.drawLines(this.players[1].color);
+    this.players[2].matchScore.drawLines(this.players[2].color);
 }
 
 GamePolicy.prototype.checkColisionValidity = function(ball1,ball2){
@@ -88,17 +102,20 @@ GamePolicy.prototype.handleBallInHole = function(ball){
     setTimeout(function(){ball.out();}, 100);
 
     let currentPlayer = this.players[this.turn];
-    let secondPlayer = this.players[(this.turn+1)%2];
-    //let thirdPlayer = this.players[(this.turn+2)%3];  ?? guesswork - understand
+    let secondPlayer = this.players[(this.turn+1)%this.noOfPlayers];
+    let thirdPlayer = this.players[(this.turn+2)%this.noOfPlayers];  
 
     if(currentPlayer.color == undefined){
         if(ball.color === Color.red){
             currentPlayer.color = Color.red;
-            secondPlayer.color = Color.yellow;
+            //secondPlayer.color = Color.yellow;
         }
         else if(ball.color === Color.yellow){
             currentPlayer.color = Color.yellow;
-            secondPlayer.color = Color.red;
+            //secondPlayer.color = Color.red;
+        }
+        else if(ball.color === Color.blue){
+            currentPlayer.color = Color.blue;
         }
         else if(ball.color === Color.black){
             this.won = true; 
@@ -150,13 +167,14 @@ GamePolicy.prototype.handleBallInHole = function(ball){
     }
     else{
         secondPlayer.matchScore.increment();
+        thirdPlayer.matchScore.increment();
         this.foul = true;
     }
 }
 
 GamePolicy.prototype.switchTurns = function(){
     this.turn++;
-    this.turn%=2;
+    this.turn%=this.noOfPlayers;
 }
 
 GamePolicy.prototype.updateTurnOutcome = function(){
@@ -180,7 +198,8 @@ GamePolicy.prototype.updateTurnOutcome = function(){
             }
         }
         else{
-            this.players[(this.turn+1)%2].totalScore.increment();
+            this.players[(this.turn+1)%this.noOfPlayers].totalScore.increment(); // on foul inc BOTH other player scores!
+            this.players[(this.turn+2)%this.noOfPlayers].totalScore.increment();
             if(AI.finishedSession){
                 this.reset();
                 setTimeout(function(){Game.gameWorld.reset();

@@ -21,7 +21,8 @@
                 .script('script/game_objects/Score.js').wait()// scoring
                 .script('script/game_objects/Ball.js').wait() // ball physics, props: colour methods: shoot updatPos, handleCollision, stop, draw etc
                 .script('script/game_objects/Stick.js').wait()// methods: handleInput(if player turn), shoot, update, reset, draw
-                                                              // 
+                                                              //           ^ shoot for human player
+                                                              // shoot - i/f for non human player
                                                               // MENU
                 .script('script/menu/Label.js').wait()        // Canvas2D.draw (text, position, origin, color, textAlign, fontname, fontsize)
                 .script('script/menu/Button.js').wait()       // Canvas2D, Mouse - Meths:init(actrionCallback),draw,handleInput,mouseInsideBorders < uses sprite dims
@@ -33,8 +34,8 @@
                 .script('script/AI/AIPolicy.js').wait()
                 .script('script/AI/AITrainer.js').wait()                
                 .script('script/game_objects/Player.js').wait()// color, matchScore, totalScore - used GamePolicy.js
-                .script('script/GamePolicy.js').wait()
-                .script('script/GameWorld.js').wait()
+                .script('script/GamePolicy.js').wait()        // game players, hole positions, scores, score displays
+                .script('script/GameWorld.js').wait()         // game objects, collition detection, balls in motion, pos/vector updates, white overlap, position white on foul, render table(bkgnd) balls score stick
                 .script('script/Game.js').wait()
                 .script('script/Assets.js').wait(function () {
                     Game.start('gameArea','screen', 1500, 825);

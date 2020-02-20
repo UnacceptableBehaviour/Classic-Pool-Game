@@ -18,31 +18,31 @@ function GameWorld() {
     this.redBalls = [
     new Ball(new Vector2(1016,433),Color.red),// 3 - 1056,433
     new Ball(new Vector2(1050,452),Color.red),// 6 - 1090,452
-    new Ball(new Vector2(1086,393),Color.red),// 8 - 1126,393
-    new Ball(new Vector2(1122,374),Color.red),//12 - 1162,374
-    new Ball(new Vector2(1122,491),Color.red),//15 - 1162,491
-    new Ball(new Vector2(1162,393),Color.red),//17 - 1202,393
-    new Ball(new Vector2(1202,413),Color.red) //21 - 1242,413
+    //new Ball(new Vector2(1086,393),Color.red),// 8 - 1126,393
+    //new Ball(new Vector2(1122,374),Color.red),//12 - 1162,374
+    //new Ball(new Vector2(1122,491),Color.red),//15 - 1162,491
+    //new Ball(new Vector2(1162,393),Color.red),//17 - 1202,393
+    //new Ball(new Vector2(1202,413),Color.red) //21 - 1242,413
     ]
 
     this.yellowBalls = [
     new Ball(new Vector2( 982,413),Color.yellow),// 1 - 1022,413
     new Ball(new Vector2(1086,433),Color.yellow),// 9 - 1126,433
-    new Ball(new Vector2(1050,374),Color.yellow),// 4 - 1090,374
-    new Ball(new Vector2(1122,335),Color.yellow),//11 - 1162,335
-    new Ball(new Vector2(1122,452),Color.yellow),//14 - 1162,452
-    new Ball(new Vector2(1162,433),Color.yellow),//18 - 1202,433
-    new Ball(new Vector2(1202,374),Color.yellow) //20 - 1242,374
+    //new Ball(new Vector2(1050,374),Color.yellow),// 4 - 1090,374
+    //new Ball(new Vector2(1122,335),Color.yellow),//11 - 1162,335
+    //new Ball(new Vector2(1122,452),Color.yellow),//14 - 1162,452
+    //new Ball(new Vector2(1162,433),Color.yellow),//18 - 1202,433
+    //new Ball(new Vector2(1202,374),Color.yellow) //20 - 1242,374
     ];
     
     this.blueBalls = [
     new Ball(new Vector2(1016,393),Color.blue),// 2 - 1056,393
     new Ball(new Vector2(1086,354),Color.blue),// 7 - 1126,354   
-    new Ball(new Vector2(1086,472),Color.blue),//10 - 1126,472  
-    new Ball(new Vector2(1122,413),Color.blue),//13 - 1162,413  
-    new Ball(new Vector2(1162,354),Color.blue),//16 - 1202,354  
-    new Ball(new Vector2(1162,472),Color.blue),//19 - 1202,472  
-    new Ball(new Vector2(1202,452),Color.blue),//22 - 1242,452
+    //new Ball(new Vector2(1086,472),Color.blue),//10 - 1126,472  
+    //new Ball(new Vector2(1122,413),Color.blue),//13 - 1162,413  
+    //new Ball(new Vector2(1162,354),Color.blue),//16 - 1202,354  
+    //new Ball(new Vector2(1162,472),Color.blue),//19 - 1202,472  
+    //new Ball(new Vector2(1202,452),Color.blue),//22 - 1242,452
     ];
 
     
@@ -56,23 +56,23 @@ function GameWorld() {
     this.redBalls[0],
     this.redBalls[1],
     this.blackBall,
-    this.yellowBalls[2],
-    this.yellowBalls[3],
-    this.redBalls[2],
-    this.yellowBalls[4],
-    this.redBalls[3],
-    this.redBalls[4],
-    this.redBalls[5],
-    this.yellowBalls[5],
-    this.redBalls[6],
-    this.yellowBalls[6],
+    //this.yellowBalls[2],
+    //this.yellowBalls[3],
+    //this.redBalls[2],
+    //this.yellowBalls[4],
+    //this.redBalls[3],
+    //this.redBalls[4],
+    //this.redBalls[5],
+    //this.yellowBalls[5],
+    //this.redBalls[6],
+    //this.yellowBalls[6],
     this.blueBalls[0],
     this.blueBalls[1],
-    this.blueBalls[2],
-    this.blueBalls[3],
-    this.blueBalls[4],
-    this.blueBalls[5],
-    this.blueBalls[6],
+    //this.blueBalls[2],
+    //this.blueBalls[3],
+    //this.blueBalls[4],
+    //this.blueBalls[5],
+    //this.blueBalls[6],
     this.whiteBall]
 
     this.stick = new Stick({ x : 413, y : 413 });
@@ -87,6 +87,9 @@ GameWorld.prototype.getBallsSetByColor = function(color){
     }
     if(color === Color.yellow){
         return this.yellowBalls;
+    }
+    if(color === Color.blue){
+        return this.blueBalls;
     }
     if(color === Color.white){
         return this.whiteBall;
@@ -154,7 +157,7 @@ GameWorld.prototype.ballInHand = function(){
 GameWorld.prototype.whiteBallOverlapsBalls = function(){
 
     let ballsOverlap = false;
-    for (var i = 0 ; i < this.balls.length; i++) {
+    for (var i = 0 ; i < this.balls.length; i++) { 
         if(this.whiteBall !== this.balls[i]){
             if(this.whiteBall.position.distanceFrom(this.balls[i].position)<BALL_SIZE){
                 ballsOverlap = true;
