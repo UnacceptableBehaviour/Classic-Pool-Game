@@ -20,7 +20,8 @@
                 .script('script/Canvas2D.js').wait()          // props: scale,offset methods: init, clear, resize, drawImage drawText
                 .script('script/game_objects/Score.js').wait()// scoring
                 .script('script/game_objects/Ball.js').wait() // ball physics, props: colour methods: shoot updatPos, handleCollision, stop, draw etc
-                .script('script/game_objects/Stick.js').wait()// 
+                .script('script/game_objects/Stick.js').wait()// methods: handleInput(if player turn), shoot, update, reset, draw
+                                                              // 
                                                               // MENU
                 .script('script/menu/Label.js').wait()        // Canvas2D.draw (text, position, origin, color, textAlign, fontname, fontsize)
                 .script('script/menu/Button.js').wait()       // Canvas2D, Mouse - Meths:init(actrionCallback),draw,handleInput,mouseInsideBorders < uses sprite dims

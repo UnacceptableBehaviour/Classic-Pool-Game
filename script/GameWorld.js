@@ -4,39 +4,51 @@ function GameWorld() {
 
     this.whiteBallStartingPosition = new Vector2(413,413);
 
+    // layout normal triangle w/ 4 extra balls behind it
+    // and 3 more behine that - adding 7 extra balls for player 3
+    // lay ball in alternating colors
+    // x = 34 / col
+    // y = 40 / ball
+    
+    // 1  2    3       4           5            4         3
+    //   ---       --------                -----------
+    // 1 3 2 4 5 6 10 9 8 7 11 12 13 14 15 19 18 17 16 20 21 22
+    // Y R B Y K R B  Y R B Y  R  B  Y  R  B  Y  R  B  Y  R  B  
+    
     this.redBalls = [
-    new Ball(new Vector2(1056,433),Color.red),//3
-    new Ball(new Vector2(1090,374),Color.red),//4
-    new Ball(new Vector2(1126,393),Color.red),//8
-    new Ball(new Vector2(1126,472),Color.red),//10;
-    new Ball(new Vector2(1162,335),Color.red),//11
-    new Ball(new Vector2(1162,374),Color.red),//12
-    new Ball(new Vector2(1162,452),Color.red)//14
+    new Ball(new Vector2(1016,433),Color.red),// 3 - 1056,433
+    new Ball(new Vector2(1050,452),Color.red),// 6 - 1090,452
+    new Ball(new Vector2(1086,393),Color.red),// 8 - 1126,393
+    new Ball(new Vector2(1122,374),Color.red),//12 - 1162,374
+    new Ball(new Vector2(1122,491),Color.red),//15 - 1162,491
+    new Ball(new Vector2(1162,393),Color.red),//17 - 1202,393
+    new Ball(new Vector2(1202,413),Color.red) //21 - 1242,413
     ]
 
     this.yellowBalls = [
-    new Ball(new Vector2(1022,413),Color.yellow),//1
-    new Ball(new Vector2(1056,393),Color.yellow),//2
-    new Ball(new Vector2(1090,452),Color.yellow),//6
-    new Ball(new Vector2(1126,354),Color.yellow),//7
-    new Ball(new Vector2(1126,433),Color.yellow),//9
-    new Ball(new Vector2(1162,413),Color.yellow),//13
-    new Ball(new Vector2(1162,491),Color.yellow)//15
+    new Ball(new Vector2( 982,413),Color.yellow),// 1 - 1022,413
+    new Ball(new Vector2(1086,433),Color.yellow),// 9 - 1126,433
+    new Ball(new Vector2(1050,374),Color.yellow),// 4 - 1090,374
+    new Ball(new Vector2(1122,335),Color.yellow),//11 - 1162,335
+    new Ball(new Vector2(1122,452),Color.yellow),//14 - 1162,452
+    new Ball(new Vector2(1162,433),Color.yellow),//18 - 1202,433
+    new Ball(new Vector2(1202,374),Color.yellow) //20 - 1242,374
     ];
     
     this.blueBalls = [
-    new Ball(new Vector2(900,363),Color.blue),//
-    new Ball(new Vector2(900,413),Color.blue),//
-    new Ball(new Vector2(500,413),Color.blue),//
-    new Ball(new Vector2(900,463),Color.blue),//
-    new Ball(new Vector2(1210,363),Color.blue),//
-    new Ball(new Vector2(1210,413),Color.blue),//
-    new Ball(new Vector2(1210,463),Color.blue),//
-    //new Ball(new Vector2(1162,491),Color.blue)//
+    new Ball(new Vector2(1016,393),Color.blue),// 2 - 1056,393
+    new Ball(new Vector2(1086,354),Color.blue),// 7 - 1126,354   
+    new Ball(new Vector2(1086,472),Color.blue),//10 - 1126,472  
+    new Ball(new Vector2(1122,413),Color.blue),//13 - 1162,413  
+    new Ball(new Vector2(1162,354),Color.blue),//16 - 1202,354  
+    new Ball(new Vector2(1162,472),Color.blue),//19 - 1202,472  
+    new Ball(new Vector2(1202,452),Color.blue),//22 - 1242,452
     ];
 
+    
+    
     this.whiteBall = new Ball(new Vector2(413,413),Color.white);
-    this.blackBall = new Ball(new Vector2(1090,413),Color.black);
+    this.blackBall = new Ball(new Vector2(1050,413),Color.black);
 
     this.balls = [
     this.yellowBalls[0],
