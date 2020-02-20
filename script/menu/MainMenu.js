@@ -13,8 +13,17 @@ function generateMainMenuLabels(headerText){
             "100px"
         ),
         new Label(
-            "© 2018 Chen Shmilovich", 
-            new Vector2(1250,700),
+            "Adapted by Simon Fernandez", 
+            new Vector2(1050,700),
+            Vector2.zero,
+            "white",
+            "left",
+            "Bookman",
+            "20px"
+        ),
+        new Label(
+            "from Classic Pool © 2018 Chen Shmilovich", 
+            new Vector2(1050,725),
             Vector2.zero,
             "white",
             "left",
@@ -30,23 +39,21 @@ function generateMainMenuLabels(headerText){
 
 function generateMainMenuButtons(inGame){
 
-
-
     let buttons = [];
 
-    let dev = 0;
+    let dev = 0;                            // adjusts following buttons position if interrupting play
 
     if(inGame){
         dev = 200;
-        buttons.push(
+        buttons.push(                       // if interrupting a game  PUSH continue button onto buttons array
             new Button
                 (
                     // CONTINUE BUTTON
                     sprites.continueButton, 
                     new Vector2(200,200),
                     function(){
-                        Game.mainMenu.active = false;
-                        GAME_STOPPED = false;
+                        Game.mainMenu.active = false;           // take down menu
+                        GAME_STOPPED = false;                   // restart 
                         setTimeout(Game.continueGame,200);
                         sounds.fadeOut(Game.mainMenu.sound);
                     },
@@ -92,7 +99,7 @@ function generateMainMenuButtons(inGame){
         sprites.backButton, 
         new Vector2(100,150),
         function(){
-            Game.mainMenu.labels = generateMainMenuLabels("Classic 8-Ball");
+            Game.mainMenu.labels = generateMainMenuLabels(Game.title);
             Game.mainMenu.buttons = generateMainMenuButtons(inGame);
         },
         sprites.backButtonHover
@@ -108,7 +115,7 @@ function generateMainMenuButtons(inGame){
                 AI_ON = false;
                 Game.mainMenu.active = false;
                 GAME_STOPPED = false;
-                setTimeout(Game.startNewGame,200);
+                setTimeout(Game.startNewGame,200);          // START GAME <---<
                 sounds.fadeOut(Game.mainMenu.sound);
             },
             sprites.twoPlayersButtonHover
@@ -118,7 +125,7 @@ function generateMainMenuButtons(inGame){
             // PLAYER vs COMPUTER
             sprites.onePlayersButton, 
             new Vector2(200,dev+400),
-            function(){
+            function(){                                     // Create SUB-Menu 
                 Game.mainMenu.labels = generateMainMenuLabels("Choose Difficulty");
 
                 Mouse.reset();

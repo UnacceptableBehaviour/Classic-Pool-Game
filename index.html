@@ -23,10 +23,11 @@
                 .script('script/game_objects/Stick.js').wait()// TODO
                                                               // MENU
                 .script('script/menu/Label.js').wait()        // Canvas2D.draw (text, position, origin, color, textAlign, fontname, fontsize)
-                .script('script/menu/Button.js').wait()       // Canvas2D, Mouse - Meths:draw,handleInput,mouseInsideBorders < uses sprite dims
-                .script('script/menu/Menu.js').wait()         // 
-                .script('script/menu/MainMenu.js').wait()
-                                                              // AI?
+                .script('script/menu/Button.js').wait()       // Canvas2D, Mouse - Meths:init(actrionCallback),draw,handleInput,mouseInsideBorders < uses sprite dims
+                .script('script/menu/Menu.js').wait()         // Init.load,draw,handleInput,menuLoop
+                .script('script/menu/MainMenu.js').wait()     // generateMenuLabels, generateMenuButtons < arrays
+                                                              // Also creates submenu - Player vs COM
+                                                              //    which launches game w/ AI player
                 .script('script/AI/Opponent.js').wait()
                 .script('script/AI/AIPolicy.js').wait()
                 .script('script/AI/AITrainer.js').wait()                

@@ -16,6 +16,7 @@ function Game_Singleton() {
     this.spritesStillLoading = 0;
     this.gameWorld = undefined;
     this.sound = true;
+    this.title = '3 Way 8-Ball';
 
     this.mainMenu = new Menu();
 }
@@ -38,7 +39,7 @@ Game_Singleton.prototype.initialize = function () {
 
 Game_Singleton.prototype.initMenus = function(inGame){
 
-    let labels = generateMainMenuLabels("Classic 8-Ball");
+    let labels = generateMainMenuLabels(this.title);
 
     let buttons = generateMainMenuButtons(inGame);
 
@@ -127,5 +128,8 @@ Game_Singleton.prototype.mainLoop = function () {
     }
 };
 
+
+
 var Game = new Game_Singleton();
 
+console.log(`FIRED UP GameEngine: ${Game.title}`);
