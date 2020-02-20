@@ -23,6 +23,17 @@ function GameWorld() {
     new Ball(new Vector2(1162,413),Color.yellow),//13
     new Ball(new Vector2(1162,491),Color.yellow)//15
     ];
+    
+    this.blueBalls = [
+    new Ball(new Vector2(900,363),Color.blue),//
+    new Ball(new Vector2(900,413),Color.blue),//
+    new Ball(new Vector2(500,413),Color.blue),//
+    new Ball(new Vector2(900,463),Color.blue),//
+    new Ball(new Vector2(1210,363),Color.blue),//
+    new Ball(new Vector2(1210,413),Color.blue),//
+    new Ball(new Vector2(1210,463),Color.blue),//
+    //new Ball(new Vector2(1162,491),Color.blue)//
+    ];
 
     this.whiteBall = new Ball(new Vector2(413,413),Color.white);
     this.blackBall = new Ball(new Vector2(1090,413),Color.black);
@@ -43,6 +54,13 @@ function GameWorld() {
     this.yellowBalls[5],
     this.redBalls[6],
     this.yellowBalls[6],
+    this.blueBalls[0],
+    this.blueBalls[1],
+    this.blueBalls[2],
+    this.blueBalls[3],
+    this.blueBalls[4],
+    this.blueBalls[5],
+    this.blueBalls[6],
     this.whiteBall]
 
     this.stick = new Stick({ x : 413, y : 413 });

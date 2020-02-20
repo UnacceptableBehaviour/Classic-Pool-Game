@@ -89,6 +89,7 @@ GamePolicy.prototype.handleBallInHole = function(ball){
 
     let currentPlayer = this.players[this.turn];
     let secondPlayer = this.players[(this.turn+1)%2];
+    //let thirdPlayer = this.players[(this.turn+2)%3];  ?? guesswork - understand
 
     if(currentPlayer.color == undefined){
         if(ball.color === Color.red){

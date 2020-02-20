@@ -21,6 +21,9 @@ Object.defineProperty(Ball.prototype, "color",
     		}
     		else if(this.sprite == sprites.yellowBall){
     			return Color.yellow;
+    		}			
+			else if(this.sprite == sprites.blueBall){
+    			return Color.blue;
     		}
 			else if(this.sprite == sprites.blackBall){
     			return Color.black;
@@ -35,6 +38,9 @@ Object.defineProperty(Ball.prototype, "color",
             }
             else if(value == Color.yellow){
             	this.sprite = sprites.yellowBall;
+            }			
+            else if(value == Color.blue){
+            	this.sprite = sprites.blueBall;
             }
 			else if(value == Color.black){
             	this.sprite = sprites.blackBall;
