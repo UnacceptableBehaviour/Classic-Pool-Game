@@ -7,7 +7,7 @@
     <link rel="shortcut icon" type="image/png" href="assets/sprites/favicon.png"/>
     <script src="script/lib/LAB.min.js"></script>                   <!--Asynch JS loader lib-->
     <script>
-        $LAB
+        $LAB                                                  // control load & exec order - more: https://github.com/getify/LABjs/tree/v3.0
                 .script('script/system/Keys.js').wait()       // Keyboard translation defs
                 .script('script/system/Color.js').wait()      // Colour defs
                 .script('script/geom/Vector2.js').wait()      // vector + - / * and properties

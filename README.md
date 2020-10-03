@@ -1,7 +1,8 @@
 <h1>Classic-Pool-Game</h1>
 <small>© Chen Shmilovich - 2018.</small>
 <br>
-
+See $LAB loading section in [index.html](https://github.com/UnacceptableBehaviour/Classic-Pool-Game/blob/master/index.html) for summary of what each file is for.
+<br>
 <hr>
 
 **A Typescript remake is now available** [here](https://github.com/henshmi/Classic-8-Ball-Pool).  
